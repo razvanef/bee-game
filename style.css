@@ -1,0 +1,177 @@
+
+.content {
+    max-width: 900px;
+    padding: 50px 0;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('./images/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.content .actions {
+    display: none;
+}
+.start-game .actions {
+    display: block;
+}
+.btn {
+    background-color: #f3f3f3;
+    border: 0;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 13px;
+    font-weight: 700;
+    height: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #efefef;
+    color: green;
+}
+.hit-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.hit-button img {
+    max-width: 200px;
+}
+.hit-button:active {
+    transform: scale(0.95);
+}
+.start-game .hit-button {
+    display: none;
+}
+#swarm {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.bee {
+    position: relative;
+    height: 50px;
+    min-width: 80px;
+    flex: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+    margin: 20px;
+    animation: shake 0.4s infinite;
+    box-sizing: border-box;
+}
+.bee-queen {
+    background-image: url("./images/bee-queen.png")
+}
+.bee-worker {
+    background-image: url("./images/bee-worker.png")
+}
+.bee-drone {
+    background-image: url("./images/bee-drone.png")
+}
+
+.bee .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.bee .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.bee:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dead-bee {
+    filter: grayscale(1);
+    animation: none;
+}
+.game-over {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #184615a1;
+    font-size: 48px;
+    color: #fff;
+    text-shadow: 2px 2px 5px #001f08;
+    padding-top: 30vh;
+}
+
+.game-over .reset-button {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    margin-top: 40px;
+    cursor: pointer;
+}
+.game-over .reset-button svg {
+    fill: #fff;
+}
+
+.bounce-bee {
+    -webkit-animation:spin .4s linear infinite;
+    -moz-animation:spin .4s linear infinite;
+    animation:spin .4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(2deg) translate(3px, 3px);
+    }
+    60% {
+        transform: rotate(-2deg) translate(3px, -3px);
+    }
+    100% {
+        transform: rotate(0deg) translate(-3px, 3px);
+    }
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
